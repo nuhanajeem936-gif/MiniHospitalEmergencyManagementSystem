@@ -1,6 +1,8 @@
 public class EmergencyQueue {
 
-    // ========== NODE CLASS ==========
+    // =========================
+    // NODE CLASS
+    // =========================
 
     private class Node {
 
@@ -13,15 +15,19 @@ public class EmergencyQueue {
         }
     }
 
+    // Front and rear of the queue
     private Node front;
     private Node rear;
 
-    // ========== ENQUEUE PATIENT ==========
+    
+        // ========== ENQUEUE PATIENT ==========
+
 
     public void enqueue(Patient patient) {
 
         Node newNode = new Node(patient);
 
+        // If queue is empty
         if (rear == null) {
 
             front = newNode;
@@ -29,31 +35,34 @@ public class EmergencyQueue {
 
         } else {
 
+            // Add patient at the rear
             rear.next = newNode;
             rear = newNode;
         }
     }
 
-    // ========== DEQUEUE PATIENT - FIFO ==========
+    
+        // ========== DEQUEUE PATIENT - FIFO ==========
 
     public Patient dequeue() {
 
-        // ========== HANDLE EMPTY QUEUE ==========
-
+        // Handle empty queue
         if (front == null) {
 
-            System.out.println("Queue is empty. No patient to dequeue.");
+            System.out.println(
+                    "Queue is empty. No patient to dequeue."
+            );
+
             return null;
         }
 
-        // ========== REMOVE FRONT PATIENT ==========
-
+        // Store the patient at the front
         Patient patient = front.patient;
 
+        // Move front to the next patient
         front = front.next;
 
-        // ========== UPDATE REAR IF QUEUE BECOMES EMPTY ==========
-
+        // If queue becomes empty, reset rear
         if (front == null) {
 
             rear = null;
@@ -62,17 +71,23 @@ public class EmergencyQueue {
         return patient;
     }
 
-    // ========== DISPLAY ALL WAITING PATIENTS ==========
+    // ==========  DISPLAY WAITING PATIENTS ==========
 
     public void displayWaitingPatients() {
 
+        // Handle empty queue
         if (front == null) {
 
-            System.out.println("No patients are currently waiting.");
+            System.out.println(
+                    "No patients are currently waiting."
+            );
+
             return;
         }
 
         Node current = front;
+
+        System.out.println("Patients currently waiting:");
 
         while (current != null) {
 
@@ -80,5 +95,12 @@ public class EmergencyQueue {
 
             current = current.next;
         }
+    }
+
+    // ========== CHECK IF QUEUE IS EMPTY ==========
+
+    public boolean isEmpty() {
+
+        return front == null;
     }
 }
