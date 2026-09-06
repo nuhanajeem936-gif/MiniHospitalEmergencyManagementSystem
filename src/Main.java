@@ -32,10 +32,34 @@ public class Main {
                 "Medical observation"
         );
 
-        // ========== DISPLAY PATIENT'S VISIT HISTORY ==========
+        // ========== DISPLAY PATIENT VISIT HISTORY ==========
 
         System.out.println();
         System.out.println("========== PATIENT'S VISIT HISTORY ==========");
+        System.out.println();
+
+        patientVisitHistory.displayVisitHistory();
+
+        // ========== SEARCH FOR A VISIT ==========
+
+        System.out.println();
+        System.out.println("========== SEARCH FOR A VISIT ==========");
+        System.out.println();
+
+        patientVisitHistory.searchVisit(5002);
+
+        // ========== REMOVE A VISIT ==========
+
+        System.out.println();
+        System.out.println("========== REMOVE A VISIT ==========");
+        System.out.println();
+
+        patientVisitHistory.removeVisit(5002);
+
+        // ========== DISPLAY UPDATED VISIT HISTORY ==========
+
+        System.out.println();
+        System.out.println("========== UPDATED VISIT HISTORY ==========");
         System.out.println();
 
         patientVisitHistory.displayVisitHistory();
