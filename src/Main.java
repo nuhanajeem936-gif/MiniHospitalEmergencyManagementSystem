@@ -2,7 +2,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // ========== PATIENT VISIT HISTORY ==========
+        // ==================================================
+        // PATIENT VISIT HISTORY - SINGLY LINKED LIST
+        // ==================================================
 
         VisitHistory patientVisitHistory = new VisitHistory();
 
@@ -63,5 +65,46 @@ public class Main {
         System.out.println();
 
         patientVisitHistory.displayVisitHistory();
+
+
+        // ==================================================
+        // TREATMENT HISTORY - STACK
+        // ==================================================
+
+        TreatmentStack treatmentStack = new TreatmentStack();
+
+        // ========== PUSH TREATMENT RECORDS ==========
+
+        treatmentStack.push("Patient 1001 - Fever - Medication prescribed");
+        treatmentStack.push("Patient 1002 - Headache - Pain relief treatment");
+        treatmentStack.push("Patient 1003 - Chest Pain - Medical observation");
+
+        // ========== DISPLAY TREATMENT RECORDS ==========
+
+        System.out.println();
+        System.out.println("========== TREATMENT HISTORY ==========");
+        System.out.println();
+
+        treatmentStack.displayTreatmentRecords();
+
+        // ========== POP MOST RECENT TREATMENT ==========
+
+        System.out.println();
+        System.out.println("========== REMOVE MOST RECENT TREATMENT ==========");
+        System.out.println();
+
+        String removedTreatment = treatmentStack.pop();
+
+        if (removedTreatment != null) {
+            System.out.println("Removed treatment: " + removedTreatment);
+        }
+
+        // ========== DISPLAY UPDATED TREATMENT HISTORY ==========
+
+        System.out.println();
+        System.out.println("========== UPDATED TREATMENT HISTORY ==========");
+        System.out.println();
+
+        treatmentStack.displayTreatmentRecords();
     }
 }
